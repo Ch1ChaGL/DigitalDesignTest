@@ -1,6 +1,6 @@
 'use strict';
 
-import { getDayInfo } from './date.js';
+// import { getDayInfo } from './date.js';
 
 const dates = [
   '01.01.23',
@@ -57,7 +57,6 @@ const setDate = (card, date) => {
   subtitleElement.insertAdjacentElement('afterend', dateElement);
 };
 
-
-for(let i = 0; i<cards.length; i++){
-    setDate(cards[i], dates[i]);
+for (let i = 0; i < cards.length; i++) {
+  setDate(cards[i], dates[i]);
 }

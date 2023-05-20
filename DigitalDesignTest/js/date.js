@@ -73,7 +73,7 @@ function getDayInfo(date) {
   return myDate;
 }
 
-export {getDayInfo};
+// export {getDayInfo};
 
 
 //Думал так можно сделать, но потом понял, что так не работает :)
