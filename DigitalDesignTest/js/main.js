@@ -46,7 +46,7 @@ const dates = [
 
 const cards = document.querySelectorAll('.card');
 
-const setDate = (card, date) => {
+const setDate = async (card, date) => {
   const stringDate = getDayInfo(date);
 
   const subtitleElement = card.querySelector('.card__offer');
@@ -57,6 +57,14 @@ const setDate = (card, date) => {
   subtitleElement.insertAdjacentElement('afterend', dateElement);
 };
 
-for (let i = 0; i < cards.length; i++) {
-  setDate(cards[i], dates[i]);
-}
+// for (let i = 0; i < cards.length; i++) {
+//   setDate(cards[i], dates[i]);
+// }
+
+const loadDates = async () => {
+  for (let i = 0; i < cards.length; i++) {
+    await setDate(cards[i], dates[i]);
+  }
+};
+
+loadDates();
