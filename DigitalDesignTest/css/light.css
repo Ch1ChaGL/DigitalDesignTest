@@ -71,6 +71,6 @@ body {
 }
 
 .arrow-top {
-  border-top: 10px solid #bebcc1;
-  border-right: 10px solid #bebcc1;
+  border-color: #bebcc1;
+  border-color: #bebcc1;
 }
