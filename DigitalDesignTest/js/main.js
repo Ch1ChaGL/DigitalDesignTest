@@ -1,49 +1,63 @@
 'use strict';
 
-const burger = document.querySelector('.menu__burger');
-//Назначение класса active при нажатии на меню-бургер
-burger.addEventListener('click', event => {
-  burger.classList.toggle('active');
-  document.querySelector('.menu__body').classList.toggle('open');
-});
+import { getDayInfo } from './date.js';
 
-const theme = document.querySelector('.menu__theme');
+const dates = [
+  '01.01.23',
+  '10.01.23',
+  '15.01.23',
+  '22.01.23',
+  '05.02.23',
+  '12.02.23',
+  '20.02.23',
+  '25.02.23',
+  '03.03.23',
+  '08.03.23',
+  '17.03.23',
+  '24.03.23',
+  '02.04.23',
+  '09.04.23',
+  '16.04.23',
+  '21.04.23',
+  '01.05.23',
+  '06.05.23',
+  '14.05.23',
+  '20.05.23',
+  '04.06.23',
+  '10.06.23',
+  '18.06.23',
+  '25.06.23',
+  '03.07.23',
+  '09.07.23',
+  '16.07.23',
+  '22.07.23',
+  '01.08.23',
+  '07.08.23',
+  '15.08.23',
+  '20.08.23',
+  '02.09.23',
+  '09.09.23',
+  '17.09.23',
+  '24.09.23',
+  '01.10.23',
+  '08.10.23',
+  '16.10.23',
+];
 
-theme.addEventListener('click', event => {
-  const image = document.getElementById('theme');
-  image.classList.toggle('light');
-  if (image.classList.contains('light')) {
-    image.src = './img/nav/moon.png';
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = './css/light.css';
-    link.id = 'lightThemeStyleSheet';
+const cards = document.querySelectorAll('.card');
 
-    //Сохраняем прокрутку
-    const scrollPosition =
-      window.pageYOffset ||
-      document.documentElement.scrollTop ||
-      document.body.scrollTop ||
-      0;
-    document.head.appendChild(link);
+const setDate = (card, date) => {
+  const stringDate = getDayInfo(date);
 
-    //восстанавливаем прокрутку
-    requestAnimationFrame(() => {
-      window.scrollTo(0, scrollPosition);
-    });
-  } else {
-    image.src = './img/nav/sun.png';
-    const lightThemeStyleSheet = document.getElementById(
-      'lightThemeStyleSheet',
-    );
-    const scrollPosition =
-      window.pageYOffset ||
-      document.documentElement.scrollTop ||
-      document.body.scrollTop ||
-      0;
-    lightThemeStyleSheet.remove();
-    requestAnimationFrame(() => {
-      window.scrollTo(0, scrollPosition);
-    });
-  }
-});
+  const subtitleElement = card.querySelector('.card__offer');
+  const dateElement = document.createElement('div');
+  dateElement.className = 'card__date';
+  dateElement.textContent = stringDate;
+
+  subtitleElement.insertAdjacentElement('afterend', dateElement);
+};
+
+
+for(let i = 0; i<cards.length; i++){
+    setDate(cards[i], dates[i]);
+}

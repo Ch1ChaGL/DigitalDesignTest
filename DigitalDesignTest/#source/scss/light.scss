@@ -48,6 +48,13 @@ body {
     box-shadow: 10px 10px 10px rgba(5, 4, 4, 0.3);
   }
 }
-//категории
-
-//категории
+.button-scroll-to-top {
+  background-color: #333;
+}
+.button-scroll-to-top:hover {
+  background-color: #555;
+}
+.arrow-top {
+  border-top: 10px solid #bebcc1;
+  border-right: 10px solid #bebcc1;
+}
