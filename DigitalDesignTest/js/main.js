@@ -51,6 +51,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const getDayOfWeek = day => {
     if (day < 0 || day > 6) throw new Error('Не существует такого дня недели');
+    if (!Number.isInteger(day)) return 'Число не целое';
     return daysOfWeek[day];
   };
 
