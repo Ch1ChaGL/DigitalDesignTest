@@ -68,7 +68,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const convertDay = `${month}.${day}.${year}`;
 
+
+
     const newDate = new Date(convertDay);
+
+    alert(newDate);
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = new Intl.DateTimeFormat('ru-RU', options).format(newDate);
+
 
     const dayOfWeek = getDayOfWeek(newDate.getDay());
     const weekNumber = getWeekNumberInMonth(newDate);
