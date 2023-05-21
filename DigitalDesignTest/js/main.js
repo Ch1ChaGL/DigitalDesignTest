@@ -74,20 +74,6 @@ function getDayInfo(date) {
   return myDate;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const dates = [
   '01.01.23',
   '10.01.23',
@@ -143,8 +129,8 @@ const setDate = async (card, date) => {
   subtitleElement.insertAdjacentElement('afterend', dateElement);
 };
 
-for (let i = 0; i < cards.length; i++) {
+for (let i = 1; i < cards.length; i++) {
   setDate(cards[i], dates[i]);
 }
 
-
+setTimeout(setDate, 5000, cards[0], dates[0]);
