@@ -118,7 +118,7 @@ const dates = [
 
 const cards = document.querySelectorAll('.card');
 
-const setDate = async (card, date) => {
+const setDate = (card, date) => {
   const stringDate = getDayInfo(date);
 
   const subtitleElement = card.querySelector('.card__offer');
