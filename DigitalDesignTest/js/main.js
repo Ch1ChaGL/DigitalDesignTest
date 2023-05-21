@@ -75,6 +75,7 @@ window.addEventListener('DOMContentLoaded', () => {
       newDate.setMonth(month);
       newDate.setYear(year);      
 
+    alert(newDate);
 
     const dayOfWeek = getDayOfWeek(newDate.getDay());
     const weekNumber = getWeekNumberInMonth(newDate);
