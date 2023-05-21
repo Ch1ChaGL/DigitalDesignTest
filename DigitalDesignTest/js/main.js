@@ -67,4 +67,4 @@ const loadDates = async () => {
   }
 };
 
-loadDates();
+setTimeout(loadDates, 0);
