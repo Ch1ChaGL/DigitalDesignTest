@@ -62,19 +62,18 @@ window.addEventListener('DOMContentLoaded', () => {
    */
   function getDayInfo(date) {
     const parts = date.split('.');
-    const day = parts[0];
-    const month = parts[1];
+    const day = parseInt(parts[0]) - 1;
+    const month = parseInt(parts[1]) - 1; 
     const year = parts[2];
 
     const convertDay = `${month}.${day}.${year}`;
 
 
 
-    const newDate = new Date(convertDay);
-
-    alert(newDate);
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const formattedDate = new Intl.DateTimeFormat('ru-RU', options).format(newDate);
+    const newDate = new Date()
+      newDate.setDate(day);
+      newDate.setMonth(month);
+      newDate.setYear(year);      
 
 
     const dayOfWeek = getDayOfWeek(newDate.getDay());
@@ -86,45 +85,45 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   const dates = [
-    '01.01.23',
-    '10.01.23',
-    '15.01.23',
-    '22.01.23',
-    '05.02.23',
-    '12.02.23',
-    '20.02.23',
-    '25.02.23',
-    '03.03.23',
-    '08.03.23',
-    '17.03.23',
-    '24.03.23',
-    '02.04.23',
-    '09.04.23',
-    '16.04.23',
-    '21.04.23',
-    '01.05.23',
-    '06.05.23',
-    '14.05.23',
-    '20.05.23',
-    '04.06.23',
-    '10.06.23',
-    '18.06.23',
-    '25.06.23',
-    '03.07.23',
-    '09.07.23',
-    '16.07.23',
-    '22.07.23',
-    '01.08.23',
-    '07.08.23',
-    '15.08.23',
-    '20.08.23',
-    '02.09.23',
-    '09.09.23',
-    '17.09.23',
-    '24.09.23',
-    '01.10.23',
-    '08.10.23',
-    '16.10.23',
+    '01.01.2023',
+    '10.01.2023',
+    '15.01.2023',
+    '22.01.2023',
+    '05.02.2023',
+    '12.02.2023',
+    '20.02.2023',
+    '25.02.2023',
+    '03.03.2023',
+    '08.03.2023',
+    '17.03.2023',
+    '24.03.2023',
+    '02.04.2023',
+    '09.04.2023',
+    '16.04.2023',
+    '21.04.2023',
+    '01.05.2023',
+    '06.05.2023',
+    '14.05.2023',
+    '20.05.2023',
+    '04.06.2023',
+    '10.06.2023',
+    '18.06.2023',
+    '25.06.2023',
+    '03.07.2023',
+    '09.07.2023',
+    '16.07.2023',
+    '22.07.2023',
+    '01.08.2023',
+    '07.08.2023',
+    '15.08.2023',
+    '20.08.2023',
+    '02.09.2023',
+    '09.09.2023',
+    '17.09.2023',
+    '24.09.2023',
+    '01.10.2023',
+    '08.10.2023',
+    '16.10.2023',
   ];
 
   const cards = document.querySelectorAll('.card');
