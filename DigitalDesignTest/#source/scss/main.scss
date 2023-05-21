@@ -551,7 +551,7 @@ body {
   font-size: 20px;
   line-height: 40px;
   cursor: pointer;
-  transition: background-color 0.3s ease
+  transition: background-color 0.3s ease;
 }
 
 .button-scroll-to-top:hover {
@@ -574,18 +574,222 @@ body {
   transform: rotate(-45deg);
 }
 
-@media (max-width:500px) {
-  .arrow-top{
+@media (max-width: 500px) {
+  .arrow-top {
     margin-top: 15px;
     margin-left: 13px;
     width: 15px;
     height: 15px;
     border-top: 5px solid #bebcc1;
     border-right: 5px solid #bebcc1;
-  } 
-  .button-scroll-to-top{
-    
+  }
+  .button-scroll-to-top {
     width: 40px;
     height: 40px;
   }
+}
+
+.popup {
+  transition: opacity 0.3s ease;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  //background-color: rgba($color: #000000, $alpha: 0.5);
+  overflow: auto;
+  top: 0;
+  z-index: -100;
+  left: 0;
+  // transform: translate(-50%, -50%);
+  &__modal {
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.popup.show {
+  display: block;
+  z-index: 100;
+  opacity: 1;
+  .popup-form {
+    backdrop-filter: blur(10px);
+  }
+}
+.popup-form {
+  position: relative;
+  top: 80px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(0px);
+  border-radius: 50px;
+  padding: 60px 60px 30px 60px;
+  min-height: 100%;
+  max-width: 600px;
+  &__background {
+    position: absolute;
+    border-radius: 30px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    z-index: -1;
+  }
+  &__row {
+    display: flex;
+    flex-direction: column;
+  }
+  &__radio {
+    padding: 10px 30px;
+  }
+  &__title {
+    line-height: 30px;
+    font-size: 26px;
+    color: rgb(4, 4, 4);
+    margin-bottom: 30px;
+  }
+  &__subtitle {
+    text-align: left;
+    font-size: 18px;
+    line-height: normal;
+    margin-bottom: 15px;
+  }
+  &__image {
+    margin-bottom: 20px;
+    img{
+      max-width: 100%;
+    }
+  }
+  &__price {
+    font-size: 22px;
+  }
+  &__buy {
+    transition: box-shadow 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    background-color: #42ae60;
+    color: white;
+    max-width: 100%;
+    padding: 10px 20px;
+    &:hover {
+      box-shadow: 10px 5px 10px rgba(85, 200, 129, 0.7);
+    }
+  }
+  &__comment {
+    //transition: height 0.3s ease;
+    width: 100%;
+    padding: 10px;
+    background-color: #42ae60;
+    border-radius: 10px;
+    textarea {
+      width: 100%;
+      height: 59px;
+      padding: 15px;
+      border-radius: 5px;
+      resize: none;
+      font-size: 18px;
+    }
+  }
+  &__offer {
+    padding: 15px 0px 0px 0px;
+  }
+}
+#countword {
+  padding-top: 3px;
+  text-align: left;
+}
+textarea::-webkit-scrollbar {
+  width: 0px;
+}
+.popup::-webkit-scrollbar {
+  width: 0px;
+}
+.comment {
+  &__title {
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+  margin-bottom: 20px;
+}
+
+.radio {
+  &__column {
+    position: relative;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  &__input {
+    appearance: none;
+    position: absolute;
+  }
+  &__label {
+    padding-left: 30px;
+    font-size: 22px;
+    color: #444;
+    cursor: pointer;
+    &::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: 0;
+      display: block;
+      width: 22px;
+      height: 22px;
+      border: 1px solid rgb(92, 82, 82);
+      border-radius: 50%;
+      background-color: #ffffff;
+    }
+    &::after {
+      content: '';
+      display: block;
+      width: 18px;
+      height: 18px;
+      opacity: 0;
+      background-color: #364c2c;
+      border-radius: 50%;
+      position: absolute;
+      top: 0px;
+      left: 2px;
+    }
+  }
+}
+
+.radio__input:checked + .radio__label::before {
+  border-color: #445248;
+}
+.radio__input:checked + .radio__label::after {
+  opacity: 1;
+}
+
+.popup-form__num input[type='number']::-webkit-inner-spin-button,
+.popup-form__num input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.popup-form {
+  &__num {
+  }
+}
+.num {
+  text-align: left;
+  &__label {
+    padding-right: 30px;
+    font-size: 22px;
+  }
+}
+#num__input {
+  padding-left: 10px;
+  border-radius: 20px;
+  font-size: 22px;
+  height: 30px;
+  max-width: 320px;
+  width: 100%;
 }
