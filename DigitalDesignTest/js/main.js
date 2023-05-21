@@ -3,6 +3,7 @@
 // import { getDayInfo } from './date.js';
 
 window.addEventListener('DOMContentLoaded', () => {
+  alert('Я тут');
   const daysOfWeek = [
     'Воскресенье',
     'Понедельник',
