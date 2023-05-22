@@ -4,7 +4,7 @@ let currPrice;
 const btns = document.querySelectorAll('.offer__button');
 const myPopup = document.querySelector('.popup');
 const popupModal = document.querySelector('.popup__modal');
-
+const numInput = document.querySelector('#num__input');
 document.addEventListener('click', event => {
   const click = event.composedPath().includes(popupModal);
   if (event.target.classList.contains('offer__button')) return;
@@ -12,6 +12,7 @@ document.addEventListener('click', event => {
     myPopup.classList.remove('show');
     const textarea = myPopup.querySelector('textarea');
     textarea.value = '';
+    numInput.value = '';
   }
 });
 
@@ -42,14 +43,14 @@ function onclick(event) {
   popupOfferPrice.innerHTML = offerPrice.innerHTML;
 }
 
-const numInput = document.querySelector('#num__input');
+
 
 numInput.onkeydown = event => {
   return event.key !== '-' && event.key !== ',' && event.key !== '.';
 };
-
+let count;
 numInput.addEventListener('input', event => {
-  const count = parseInt(event.target.value);
+  count = parseInt(event.target.value);
 
   const priceElement = document.querySelector('.popup-form__price');
 
@@ -62,4 +63,23 @@ const close = document.querySelector('.popup-form__close');
 
 close.addEventListener('click', () => {
   myPopup.classList.remove('show');
+});
+
+const button = document.querySelector('.popup-form__buy');
+
+button.addEventListener('click', event => {
+  const alertDiv = document.createElement('div');
+  alertDiv.classList.add('alert');
+  if (isNaN(count) || typeof count === 'undefined') count = 0;
+
+  alertDiv.innerHTML = `Ваш заказ принят. Сумма заказа составила ${
+    currPrice * count
+  } Спасибо за покупку :)`;
+  myPopup.classList.remove('show');
+  const textarea = myPopup.querySelector('textarea');
+  textarea.value = '';
+
+  const wrap = document.querySelector('.wrapper');
+  wrap.append(alertDiv);
+  setTimeout(() => alertDiv.remove(), 2000);
 });

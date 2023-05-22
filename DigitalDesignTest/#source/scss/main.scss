@@ -858,3 +858,21 @@ textarea::-webkit-scrollbar {
     width: 100%;
   }
 }
+
+.alert {
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  font-size: 20px;
+  line-height: 15px;
+  text-align: left;
+  transform: translateX(-50%);
+  max-width: 400px;
+  max-height: 100%;
+  padding: 15px;
+  border: 1px solid #d6e9c6;
+  border-radius: 4px;
+  color: #3c763d;
+  background-color: #dff0d8;
+  z-index: 999;
+}
