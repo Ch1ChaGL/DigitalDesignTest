@@ -81,5 +81,6 @@ button.addEventListener('click', event => {
 
   const wrap = document.querySelector('.wrapper');
   wrap.append(alertDiv);
+  event.preventDefault();
   setTimeout(() => alertDiv.remove(), 2000);
 });
